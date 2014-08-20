@@ -31,12 +31,6 @@
         </LinearLayout>
 
     <Button
-        android:id="@+id/button_register_gm"
-        android:text="@string/register_gm_integration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
         android:id="@+id/button_start_route"
         android:text="@string/start_route"
         android:layout_width="match_parent"
@@ -63,12 +57,6 @@
     <Button
         android:id="@+id/button_complete_route"
         android:text="@string/complete_route"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:id="@+id/button_unregister_gm"
-        android:text="@string/unregister_gm_integration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

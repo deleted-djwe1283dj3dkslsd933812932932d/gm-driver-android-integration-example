@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
     private GmIntegration gmIntegration = new GmIntegration(this, gmIntegrationListener);
 
     private EditText editStopKey;
-    private Button buttonStartRoute, buttonCompleteRoute, buttonOpenMap, buttonArriveStop, buttonDepartStop, buttonRegisterGm, buttonUnregisterGm, buttonLoadroute;
+    private Button buttonStartRoute, buttonCompleteRoute, buttonOpenMap, buttonArriveStop, buttonDepartStop, buttonLoadRoute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +54,7 @@ public class MainActivity extends Activity {
         buttonOpenMap = (Button) findViewById(R.id.button_open_map);
         buttonArriveStop = (Button) findViewById(R.id.button_arrive_stop);
         buttonDepartStop = (Button) findViewById(R.id.button_depart_stop);
-        buttonRegisterGm = (Button) findViewById(R.id.button_register_gm);
-        buttonUnregisterGm = (Button) findViewById(R.id.button_unregister_gm);
-        buttonLoadroute = (Button) findViewById(R.id.button_load_route);
+        buttonLoadRoute = (Button) findViewById(R.id.button_load_route);
     }
 
     private void setOnClickListeners() {
@@ -65,9 +63,7 @@ public class MainActivity extends Activity {
         buttonOpenMap.setOnClickListener(onClickOpenMap);
         buttonArriveStop.setOnClickListener(onClickArriveStop);
         buttonDepartStop.setOnClickListener(onClickDepartStop);
-        buttonRegisterGm.setOnClickListener(onClickRegisterGmIntegration);
-        buttonUnregisterGm.setOnClickListener(onClickUnregisterGmIntegration);
-        buttonLoadroute.setOnClickListener(onClickLoadRoute);
+        buttonLoadRoute.setOnClickListener(onClickLoadRoute);
     }
 
     private final View.OnClickListener onClickLoadRoute = new View.OnClickListener() {
@@ -111,20 +107,6 @@ public class MainActivity extends Activity {
         @Override
         public void onClick(View v) {
             gmIntegration.departStop(editStopKey.getText().toString());
-        }
-    };
-
-    private final View.OnClickListener onClickRegisterGmIntegration = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            gmIntegration.registerGmIntegration();
-        }
-    };
-
-    private final View.OnClickListener onClickUnregisterGmIntegration = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            gmIntegration.unregisterGmIntegration();
         }
     };
 
