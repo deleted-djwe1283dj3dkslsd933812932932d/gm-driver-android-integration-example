@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
         }
     };
 
-    private GmIntegration gmIntegration = new GmIntegration(this, gmIntegrationListener);
+    private GmIntegration gmIntegration;
 
     private EditText editStopKey;
     private Button buttonStartRoute, buttonCompleteRoute, buttonOpenMap, buttonArriveStop, buttonDepartStop, buttonLoadRoute;
@@ -45,6 +45,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         getViewElements();
         setOnClickListeners();
+        gmIntegration = new GmIntegration(this, gmIntegrationListener);
     }
 
     private void getViewElements(){
@@ -77,7 +78,7 @@ public class MainActivity extends Activity {
         @Override
         public void onClick(View v) {
             showProgressDialog("Starting Route");
-            gmIntegration.startRoute();
+            gmIntegration.startAndDepartRoute();
         }
     };
 
@@ -85,7 +86,7 @@ public class MainActivity extends Activity {
         @Override
         public void onClick(View v) {
             showProgressDialog("Completing Route");
-            gmIntegration.completeRoute();
+            gmIntegration.ArriveDestinationAndCompleteRoute();
         }
     };
 
