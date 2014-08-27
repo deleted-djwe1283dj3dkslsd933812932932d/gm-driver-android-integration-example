@@ -16,6 +16,46 @@
 
         <TextView
             android:layout_weight="2"
+            android:text="@string/login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edit_login"
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:hint="@string/stop_key_hint"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="2"
+            android:text="@string/password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:id="@+id/edit_password"
+            android:layout_weight="4"
+            android:layout_width="0dp"
+            android:hint="@string/stop_key_hint"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="2"
             android:text="@string/stop_key"
             android:layout_width="0dp"
             android:layout_height="wrap_content" />
@@ -23,12 +63,17 @@
         <EditText
             android:id="@+id/edit_stop_key"
             android:layout_weight="4"
-            android:layout_marginBottom="20dp"
             android:layout_width="0dp"
             android:hint="@string/stop_key_hint"
             android:layout_height="wrap_content" />
 
-        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_login"
+        android:text="@string/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/button_start_route"

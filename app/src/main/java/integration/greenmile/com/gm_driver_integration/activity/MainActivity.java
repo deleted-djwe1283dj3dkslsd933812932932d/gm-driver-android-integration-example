@@ -36,8 +36,8 @@ public class MainActivity extends Activity {
 
     private GmIntegration gmIntegration;
 
-    private EditText editStopKey;
-    private Button buttonStartRoute, buttonCompleteRoute, buttonOpenMap, buttonArriveStop, buttonDepartStop, buttonLoadRoute;
+    private EditText editStopKey, editLogin, editPassword;
+    private Button buttonStartRoute, buttonCompleteRoute, buttonOpenMap, buttonArriveStop, buttonDepartStop, buttonLoadRoute, buttonLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,12 +50,15 @@ public class MainActivity extends Activity {
 
     private void getViewElements(){
         editStopKey = (EditText) findViewById(R.id.edit_stop_key);
+        editLogin = (EditText) findViewById(R.id.edit_login);
+        editPassword = (EditText) findViewById(R.id.edit_password);
         buttonStartRoute = (Button) findViewById(R.id.button_start_route);
         buttonCompleteRoute = (Button) findViewById(R.id.button_complete_route);
         buttonOpenMap = (Button) findViewById(R.id.button_open_map);
         buttonArriveStop = (Button) findViewById(R.id.button_arrive_stop);
         buttonDepartStop = (Button) findViewById(R.id.button_depart_stop);
         buttonLoadRoute = (Button) findViewById(R.id.button_load_route);
+        buttonLogin = (Button) findViewById(R.id.button_login);
     }
 
     private void setOnClickListeners() {
@@ -65,12 +68,21 @@ public class MainActivity extends Activity {
         buttonArriveStop.setOnClickListener(onClickArriveStop);
         buttonDepartStop.setOnClickListener(onClickDepartStop);
         buttonLoadRoute.setOnClickListener(onClickLoadRoute);
+        buttonLogin.setOnClickListener(onClickLogin);
     }
 
     private final View.OnClickListener onClickLoadRoute = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             gmIntegration.getLoadedRoute();
+        }
+    };
+
+    private final View.OnClickListener onClickLogin = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            showProgressDialog("Login driver");
+            gmIntegration.login(editLogin.getText().toString(), editPassword.getText().toString());
         }
     };
 

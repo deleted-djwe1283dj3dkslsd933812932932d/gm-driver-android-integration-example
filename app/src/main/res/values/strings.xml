@@ -15,5 +15,8 @@
     <string name="unregister_gm_integration">Desregistrar integração com GM Driver</string>
     <string name="complete_route">Completar rota</string>
     <string name="load_route">Load Route</string>
+    <string name="password">Senha</string>
+    <string name="login">Usuário</string>
+    <string name="button_login">Logar</string>
 
 </resources>
