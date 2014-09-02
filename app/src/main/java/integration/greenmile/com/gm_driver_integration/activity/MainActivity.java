@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.greenmile.integration.core.GmIntegrationListener;
+import com.greenmile.integration.core.domain.Route;
 import com.greenmile.integration.core.integration.GmIntegration;
 
 import integration.greenmile.com.gm_driver_integration.R;
@@ -36,8 +37,8 @@ public class MainActivity extends Activity {
 
     private GmIntegration gmIntegration;
 
-    private EditText editStopKey, editLogin, editPassword;
-    private Button buttonStartRoute, buttonCompleteRoute, buttonOpenMap, buttonArriveStop, buttonDepartStop, buttonLoadRoute, buttonLogin;
+    private EditText editStopKey, editLogin, editPassword, editEquipment;
+    private Button buttonStartRoute, buttonCompleteRoute, buttonOpenMap, buttonArriveStop, buttonDepartStop, buttonLoadRoute, buttonLogin, buttonGetLoadedRoute;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +49,9 @@ public class MainActivity extends Activity {
         gmIntegration = new GmIntegration(this, gmIntegrationListener);
     }
 
-    private void getViewElements(){
+    private void getViewElements() {
         editStopKey = (EditText) findViewById(R.id.edit_stop_key);
+        editEquipment = (EditText) findViewById(R.id.edit_equipment_key);
         editLogin = (EditText) findViewById(R.id.edit_login);
         editPassword = (EditText) findViewById(R.id.edit_password);
         buttonStartRoute = (Button) findViewById(R.id.button_start_route);
@@ -59,6 +61,7 @@ public class MainActivity extends Activity {
         buttonDepartStop = (Button) findViewById(R.id.button_depart_stop);
         buttonLoadRoute = (Button) findViewById(R.id.button_load_route);
         buttonLogin = (Button) findViewById(R.id.button_login);
+        buttonGetLoadedRoute = (Button) findViewById(R.id.button_get_loaded_route);
     }
 
     private void setOnClickListeners() {
@@ -69,12 +72,24 @@ public class MainActivity extends Activity {
         buttonDepartStop.setOnClickListener(onClickDepartStop);
         buttonLoadRoute.setOnClickListener(onClickLoadRoute);
         buttonLogin.setOnClickListener(onClickLogin);
+        buttonGetLoadedRoute.setOnClickListener(onClickGetLoadedRoute);
     }
+
+    private final View.OnClickListener onClickGetLoadedRoute = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            final Route route = gmIntegration.getFullLoadedRoute();
+            if (route != null) {
+                Toast.makeText(MainActivity.this, "Chave da Rota: " + route.getAkey(), Toast.LENGTH_LONG).show();
+            }
+        }
+    };
 
     private final View.OnClickListener onClickLoadRoute = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            gmIntegration.getLoadedRoute();
+            showProgressDialog("Downloading Route");
+            gmIntegration.loadRoute(editEquipment.getText().toString());
         }
     };
 
@@ -105,14 +120,14 @@ public class MainActivity extends Activity {
     private final View.OnClickListener onClickOpenMap = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            gmIntegration.openMap(editStopKey.getText().toString());
+            gmIntegration.openMap();
         }
     };
 
     private final View.OnClickListener onClickArriveStop = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-           gmIntegration.arriveStop(editStopKey.getText().toString());
+            gmIntegration.arriveStop(editStopKey.getText().toString());
         }
     };
 
@@ -128,8 +143,8 @@ public class MainActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void dismissProgressDialog(){
-        if(progressDialog != null && progressDialog.isShowing()){
+    private void dismissProgressDialog() {
+        if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
     }
@@ -138,7 +153,7 @@ public class MainActivity extends Activity {
         progressDialog = ProgressDialog.show(this, "Greenmile", message, true);
     }
 
-    private void showErrorDialog(String action, String errorMessage){
+    private void showErrorDialog(String action, String errorMessage) {
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage(errorMessage);
         alertDialogBuilder.setTitle(action);

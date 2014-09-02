@@ -14,9 +14,11 @@
     <string name="register_gm_integration">Registrar integração com GM Driver</string>
     <string name="unregister_gm_integration">Desregistrar integração com GM Driver</string>
     <string name="complete_route">Completar rota</string>
-    <string name="load_route">Load Route</string>
+    <string name="load_route">Baixar Rota</string>
     <string name="password">Senha</string>
     <string name="login">Usuário</string>
     <string name="button_login">Logar</string>
+    <string name="equipment_key">Chave do equipamento</string>
+    <string name="get_loaded_route">Pegar rota carregada</string>
 
 </resources>

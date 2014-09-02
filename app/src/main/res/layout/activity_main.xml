@@ -2,10 +2,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
     tools:context="integration.greenmile.com.gm_driver_integration.activity.MainActivity">
 
@@ -22,11 +18,9 @@
 
         <EditText
             android:id="@+id/edit_login"
-            android:layout_weight="4"
+            android:layout_weight="2"
             android:layout_width="0dp"
-            android:hint="@string/stop_key_hint"
             android:layout_height="wrap_content" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -42,11 +36,9 @@
 
         <EditText
             android:id="@+id/edit_password"
-            android:layout_weight="4"
+            android:layout_weight="2"
             android:layout_width="0dp"
-            android:hint="@string/stop_key_hint"
             android:layout_height="wrap_content" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -62,53 +54,84 @@
 
         <EditText
             android:id="@+id/edit_stop_key"
-            android:layout_weight="4"
+            android:layout_weight="2"
             android:layout_width="0dp"
-            android:hint="@string/stop_key_hint"
             android:layout_height="wrap_content" />
-
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button_login"
-        android:text="@string/button_login"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/button_start_route"
-        android:text="@string/start_route"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_weight="2"
+            android:text="@string/equipment_key"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/button_open_map"
-        android:text="@string/open_map"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/edit_equipment_key"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/button_arrive_stop"
-        android:text="@string/arrive_stop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/button_login"
+                android:text="@string/button_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/button_depart_stop"
-        android:text="@string/depart_stop"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/button_start_route"
+                android:text="@string/start_route"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/button_complete_route"
-        android:text="@string/complete_route"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/button_open_map"
+                android:text="@string/open_map"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <Button
-        android:id="@+id/button_load_route"
-        android:text="@string/load_route"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/button_arrive_stop"
+                android:text="@string/arrive_stop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button_depart_stop"
+                android:text="@string/depart_stop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button_complete_route"
+                android:text="@string/complete_route"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button_load_route"
+                android:text="@string/load_route"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/button_get_loaded_route"
+                android:text="@string/get_loaded_route"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
