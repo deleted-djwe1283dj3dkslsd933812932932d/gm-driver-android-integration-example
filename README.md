@@ -30,19 +30,19 @@ private final GmIntegrationListener gmIntegrationListener = new GmIntegrationLis
 ```
 Os seguintes métodos estão disponíveis.
 ```java
-//Realiza o login de um usuário. Essa ação exige rede e pode demorar consideravelmente.
+//Realiza o login de um usuário usando o login e senha informados. Essa ação exige rede e pode demorar consideravelmente.
 public void login(String login, String password);
 ```
 ```java
-//Realiza a carga de uma rota. Essa ação exige rede e pode demorar consideravelmente.
+//Realiza a carga de uma rota, usando a chave de equipamento informada e o motorista logado. Essa ação exige rede e pode demorar consideravelmente.
 public void loadRoute(String equipmentKey);
 ```
 ```java
-//Realiza a saida de um cliente.
+//Realiza a saida de um cliente com a chave de parada informada.
 public void departStop(String stopKey);
 ```
 ```java
-//Realiza a chegada a um cliente.
+//Realiza a chegada a um cliente com a chave de parada informada.
 public void arriveStop(String stopKey);
 ```
 ```java
@@ -74,10 +74,58 @@ public List<Stop> getLoadedStops();
 public Stop getLoadedStopById(Integer id);
 ```
 ```java
-//Pela um lista de objetos de localidade. Essa listagem corresponde a todos as localidades carregadas no greenmile driver.
+//Pega um lista de objetos de localidade. Essa listagem corresponde a todos as localidades carregadas no greenmile driver.
 public List<Location> getLoadedLocations();
 ```
 ```java
-//Pela um objeto de localidade. Esse objeto corresponde ao objeto com o id informado como parâmetro.
+//Pega um objeto de localidade carregado no greenmile driver. Esse objeto corresponde ao objeto com o id informado como parâmetro.
 public Location getLoadedLocationById(Integer id);
+```
+```java
+//Pega a lista de stops carregados no greenmile driver. Os objetos virão com todos os seus objetos aninhados também preenchidos.
+public List<Stop> getFullLoadedStops();
+```
+```java
+//Pega o objeto de stop com o id indicado, que esteja carregado no greenmile driver. Os objetos virão com todos os seus objetos aninhados também preenchidos.
+public Stop getFullLoadedStopById(Integer id);
+```
+```java
+//Pega o objeto de stopType com o id indicado, que esteja carregado no greenmile driver.
+public StopType getLoadedStopTypeById(Integer stopTypeId);
+```
+```java
+//Pega um lista de objetos de stopType. Essa listagem corresponde a todos os tipos de stopTypes carregadas no greenmile driver.
+public List<StopType> getLoadedStopTypes();
+```
+```java
+//Pega um lista de objetos de cancelCode. Essa listagem corresponde a todos os tipos de cancelCode carregadas no greenmile driver.
+public List<CancelCode> getLoadedCancelCodes();
+```
+```java
+//Pega o objeto de cancelCode com o id indicado, que esteja carregado no greenmile driver.
+public CancelCode getLoadedCancelCodeById(Integer id);
+```
+```java
+//Pega um lista de objetos de undeliverableCode. Essa listagem corresponde a todos os tipos de undeliverableCode carregadas no greenmile driver.
+public List<UndeliverableCode> getLoadedUndeliverableCodes();
+```
+```java
+//Pega o objeto de undeliverableCode com o id indicado, que esteja carregado no greenmile driver.
+public UndeliverableCode getLoadedUndeliverableCodeById(Integer id);
+```
+```java
+//Cancela a parada que possua a chave de cliente indicada. O motivo de cancelamento usado, sera o usado como parametro.
+public void cancelStop(String stopKey, Integer cancelCodeId);
+```
+```java
+//Realiza a ação de não entrega na parada que possua a chave de cliente indicada. O motivo de não entrega usado, sera o usado como parametro.
+public void undeliveryStop(String stopKey, Integer undeliverableCodeId);
+```
+```java
+//Realiza a ação de voltar depois na parada que possua a chave de cliente indicada. O motivo de não entrega usado, sera o usado como parametro.
+public void redeliveryStop(String stopKey, Integer undeliverableCodeId);
+```
+```java
+//Adicionada como parada e o id do tipo de parada. Os tipos de paradas disponíveis podem ser consultados com a chamada getLoadedStopTypes(). Essa ação exige rede e pode demorar consideravelmente.
+public void addStop(String locationKey, Integer stopTypeId);
 ```
