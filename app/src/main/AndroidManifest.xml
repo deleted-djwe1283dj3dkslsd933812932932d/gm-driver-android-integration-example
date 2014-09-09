@@ -18,9 +18,12 @@
         </activity>
 
         <receiver
-            android:name=".receiver.GmBroadcastReceiver"
+            android:name="com.greenmile.integration.core.receiver.GmBroadcastReceiver"
             android:enabled="true"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="com.greenmile.gmintegration" />
+            </intent-filter>
         </receiver>
     </application>
 

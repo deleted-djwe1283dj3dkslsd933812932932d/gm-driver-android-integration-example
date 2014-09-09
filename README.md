@@ -3,10 +3,13 @@ gm-driver-android-integration-example
 É necessário se registar um receiver de greenmile na aplicação a ser integrada.
 ```xml
 <receiver
-            android:name=".receiver.GmBroadcastReceiver"
-            android:enabled="true"
-            android:exported="true" >
- </receiver>
+    android:name="com.greenmile.integration.core.receiver.GmBroadcastReceiver"
+    android:enabled="true"
+    android:exported="true" >
+    <intent-filter>
+        <action android:name="com.greenmile.gmintegration" />
+    </intent-filter>
+</receiver>
 ```
 
 Todas as ações a serem realizadas pela integração deverão usar uma instancia do GmIntegration. Os parâmetros construtores são o contexto de uma activity e um GmIntegrationListener.
