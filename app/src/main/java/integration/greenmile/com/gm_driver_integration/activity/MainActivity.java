@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.greenmile.integration.core.GmIntegrationListener;
+import com.greenmile.integration.core.domain.IntegrationResponse;
 import com.greenmile.integration.core.domain.Route;
 import com.greenmile.integration.core.integration.GmIntegration;
 
@@ -22,16 +23,16 @@ public class MainActivity extends Activity {
 
     private final GmIntegrationListener gmIntegrationListener = new GmIntegrationListener() {
         @Override
-        public void onSuccess(String action) {
+        public void onSuccess(IntegrationResponse response) {
             dismissProgressDialog();
-            Toast.makeText(MainActivity.this, "Action realized with success. " + action, Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Action realized with success. " + response.getAction(), Toast.LENGTH_SHORT).show();
         }
 
         @Override
-        public void onError(String action, String errorMessage) {
+        public void onError(IntegrationResponse response) {
             dismissProgressDialog();
-            showErrorDialog(action, errorMessage);
-            Toast.makeText(MainActivity.this, "Error to realize action: " + action, Toast.LENGTH_SHORT).show();
+            showErrorDialog(response.getAction(), response.getErrorMessage());
+            Toast.makeText(MainActivity.this, "Error to realize action: " + response.getAction(), Toast.LENGTH_SHORT).show();
         }
     };
 
