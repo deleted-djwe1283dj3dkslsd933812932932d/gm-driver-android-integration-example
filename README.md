@@ -21,15 +21,18 @@ O GmIntegrationListener será o responsável por receber a resposta de todas as 
 ```java
 private final GmIntegrationListener gmIntegrationListener = new GmIntegrationListener() {
         @Override
-        public void onSuccess(String action) {
-            Toast.makeText(MainActivity.this, "Action realized with success. " + action, Toast.LENGTH_SHORT).show();
+        public void onSuccess(IntegrationResponse response) {
+            dismissProgressDialog();
+            Toast.makeText(MainActivity.this, "Action realized with success. " + response.getAction(), Toast.LENGTH_SHORT).show();
         }
 
         @Override
-        public void onError(String action, String errorMessage) {
-            Toast.makeText(MainActivity.this, "Error to realize action: " + action, Toast.LENGTH_SHORT).show();
+        public void onError(IntegrationResponse response) {
+            dismissProgressDialog();
+            showErrorDialog(response.getAction(), response.getErrorMessage());
+            Toast.makeText(MainActivity.this, "Error to realize action: " + response.getAction(), Toast.LENGTH_SHORT).show();
         }
-};
+    };
 ```
 Os seguintes métodos estão disponíveis.
 ```java
