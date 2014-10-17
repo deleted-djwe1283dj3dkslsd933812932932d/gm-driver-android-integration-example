@@ -20,5 +20,6 @@
     <string name="button_login">Logar</string>
     <string name="equipment_key">Chave do equipamento</string>
     <string name="get_loaded_route">Pegar rota carregada</string>
+    <string name="route_id">Id da rota</string>
 
 </resources>

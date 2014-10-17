@@ -38,7 +38,7 @@ public class MainActivity extends Activity {
 
     private GmIntegration gmIntegration;
 
-    private EditText editStopKey, editLogin, editPassword, editEquipment;
+    private EditText editStopKey, editLogin, editPassword, editEquipment, editRouteId;
     private Button buttonStartRoute, buttonCompleteRoute, buttonOpenMap, buttonArriveStop, buttonDepartStop, buttonLoadRoute, buttonLogin, buttonGetLoadedRoute;
 
     @Override
@@ -55,6 +55,7 @@ public class MainActivity extends Activity {
         editEquipment = (EditText) findViewById(R.id.edit_equipment_key);
         editLogin = (EditText) findViewById(R.id.edit_login);
         editPassword = (EditText) findViewById(R.id.edit_password);
+        editRouteId = (EditText) findViewById(R.id.edit_route_id);
         buttonStartRoute = (Button) findViewById(R.id.button_start_route);
         buttonCompleteRoute = (Button) findViewById(R.id.button_complete_route);
         buttonOpenMap = (Button) findViewById(R.id.button_open_map);
@@ -90,7 +91,15 @@ public class MainActivity extends Activity {
         @Override
         public void onClick(View v) {
             showProgressDialog("Downloading Route");
-            gmIntegration.loadRoute(editEquipment.getText().toString());
+            gmIntegration.loadRoute(editEquipment.getText().toString(), Integer.parseInt(editRouteId.getText().toString()));
+        }
+    };
+
+    private final View.OnClickListener onClickListRoutes = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            showProgressDialog("Downloading Route");
+            gmIntegration.listAvailableRoutes(editEquipment.getText().toString());
         }
     };
 

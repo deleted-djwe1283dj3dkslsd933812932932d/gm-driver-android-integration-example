@@ -40,8 +40,12 @@ Os seguintes métodos estão disponíveis.
 public void login(String login, String password);
 ```
 ```java
-//Realiza a carga de uma rota, usando a chave de equipamento informada e o motorista logado. Essa ação exige rede e pode demorar consideravelmente.
-public void loadRoute(String equipmentKey);
+//Realiza a carga de uma rota, usando a chave de equipamento e id de rota informados e o motorista logado. Essa ação exige rede e pode demorar consideravelmente.
+public void loadRoute(String equipmentKey, Integer routeId);
+```
+```java
+//Lista todas as rotas disponíveis para baixar, usando a chave de equipamento informada e o motorista logado. A lista de rotas disponíveis será retornada no onSuccess do GmIntegrationListener. Essa ação exige rede e pode demorar consideravelmente.
+public void listAvailableRoutes(String equipmentKey);
 ```
 ```java
 //Realiza a saida de um cliente com a chave de parada informada.
