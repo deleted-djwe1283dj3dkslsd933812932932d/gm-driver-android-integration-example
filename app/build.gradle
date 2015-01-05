@@ -54,5 +54,5 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:19.+'
-    compile 'com.greenmile:driver-integration:4.6.0-SNAPSHOT'
+    compile 'com.greenmile:driver-integration:4.5.0-SNAPSHOT'
 }
