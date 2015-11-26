@@ -2,7 +2,7 @@
 
 ### Aplicativo de exemplo para integração com GM Driver Android
 
-É necessário registar um **receiver** do `GreenMile Driver` na aplicação a ser integrada.
+É necessário registrar um **receiver** do `GreenMile Driver` na aplicação a ser integrada.
 
 ```xml
 <receiver
@@ -48,7 +48,7 @@ private final GmIntegrationListener gmIntegrationListener = new GmIntegrationLis
     };
 ```
 
-## Os seguintes métodos estão disponíveis
+### Métodos disponíveis
 
 - **login**
 
@@ -293,7 +293,7 @@ public void redeliveryStop(String stopKey, Integer undeliverableCodeId);
 - **addStop**
 
 Adicionada como parada e o id do tipo de parada. Os tipos de paradas disponíveis podem ser
-consultados com a chamada **getLoadedStopTypes()**. 
+consultados com a chamada `getLoadedStopTypes()`.
 
 > Essa ação exige rede e pode demorar consideravelmente.
 
