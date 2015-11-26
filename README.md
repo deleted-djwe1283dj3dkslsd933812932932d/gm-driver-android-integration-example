@@ -2,7 +2,7 @@
 
 ### Aplicativo de exemplo para integração com GM Driver Android
 
-É necessário se registar um **receiver** da `GreenMile` na aplicação a ser integrada.
+É necessário registar um **receiver** do `GreenMile Driver` na aplicação a ser integrada.
 
 ```xml
 <receiver
@@ -43,11 +43,11 @@ private final GmIntegrationListener gmIntegrationListener = new GmIntegrationLis
     };
 ```
 
-Os seguintes métodos estão disponíveis:
+## Os seguintes métodos estão disponíveis
 
 - **login**
 
-Realiza o **login** de um usuário usando o login e senha informados.
+Realiza o **login** de um **usuário** usando o **login** e senha informados.
  
 > Essa ação exige rede e pode demorar consideravelmente.
 
@@ -57,7 +57,7 @@ public void login(String login, String password);
 
 - **loadRoute**
 
-Realiza a **carga** de uma rota, usando a chave do equipamento e o id da rota informados e o motorista
+Realiza a **carga** de uma rota, usando a **chave do equipamento** e o **id da rota** informados e o motorista
 logado.
  
 > Essa ação exige rede e pode demorar consideravelmente.
@@ -68,8 +68,8 @@ public void loadRoute(String equipmentKey, Integer routeId);
 
 - **listAvailableRoutes**
 
-Lista todas as rotas **disponíveis** para **baixar**, usando a chave de equipamento informada e o
-motorista logado. A lista de rotas disponíveis será retornada no **onSuccess** do
+Lista todas as rotas **disponíveis** para **baixar**, usando a **chave de equipamento** informada e o
+**motorista logado**. A lista de rotas disponíveis será retornada no **onSuccess** do
 **GmIntegrationListener**. 
 
 > Essa ação exige rede e pode demorar consideravelmente.
@@ -80,7 +80,7 @@ public void listAvailableRoutes(String equipmentKey);
 
 - **departStop**
 
-Realiza a **saida** de um cliente com a chave de parada informada.
+Realiza a **saida** de um cliente com a **chave de parada** informada.
 
 ```java
 public void departStop(String stopKey);
@@ -88,7 +88,7 @@ public void departStop(String stopKey);
 
 - **arriveStop**
 
-Realiza a **chegada** a um cliente com a chave de parada informada.
+Realiza a **chegada** a um cliente com a **chave de parada** informada.
 
 ```java
 public void arriveStop(String stopKey);
@@ -136,8 +136,8 @@ Pega o objeto de **rota correspondente** a **rota que está atualmente carregada
 
 > Em adicional esse objeto trará todas as **paradas da rota** e todas as **localidades das paradas**.
 
-As paradas retornadas nesse método podem ainda não ter sido enviadas para o nosso servidor.
-Nesse caso as paradas que ainda não foram sincronizadas terão o **id negativo**, e qualquer ação
+As paradas retornadas nesse método podem ainda **não ter sido enviadas para o nosso servidor**.
+Nesse caso as paradas que **ainda não foram sincronizadas** terão o **id negativo**, e qualquer ação
 sobre eles deverá ser feito sobre a **key**.
 
 ```java
@@ -267,7 +267,7 @@ public void cancelStop(String stopKey, Integer cancelCodeId);
 
 - **undeliveryStop**
 
-Realiza a **ação** de **não entrega** na **parada** que possua a chave de cliente indicada. 
+Realiza a **ação** de **não entrega** na **parada** que possua a **chave de cliente** indicada.
 
 > O motivo de não entrega usado, será o utilizado como parâmetro.
 
@@ -277,7 +277,7 @@ public void undeliveryStop(String stopKey, Integer undeliverableCodeId);
 
 - **redeliveryStop**
 
-Realiza a **ação** de **voltar depois** na **parada** que possua a chave de cliente indicada. 
+Realiza a **ação** de **voltar depois** na **parada** que possua a **chave de cliente** indicada.
 
 > O motivo de não entrega usado, será o utilizado como parâmetro.
 
