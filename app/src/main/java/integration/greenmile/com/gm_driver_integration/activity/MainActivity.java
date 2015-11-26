@@ -170,5 +170,4 @@ public class MainActivity extends Activity {
         alertDialogBuilder.setPositiveButton("Ok", null);
         alertDialogBuilder.create().show();
     }
-
 }
