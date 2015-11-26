@@ -31,14 +31,19 @@ private final GmIntegrationListener gmIntegrationListener = new GmIntegrationLis
         @Override
         public void onSuccess(IntegrationResponse response) {
             dismissProgressDialog();
-            Toast.makeText(MainActivity.this, "Action realized with success. " + response.getAction(), Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(MainActivity.this,
+                "Action realized with success. " + response.getAction(), Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onError(IntegrationResponse response) {
             dismissProgressDialog();
+
             showErrorDialog(response.getAction(), response.getErrorMessage());
-            Toast.makeText(MainActivity.this, "Error to realize action: " + response.getAction(), Toast.LENGTH_SHORT).show();
+
+            Toast.makeText(MainActivity.this,
+                "Error to realize action: " + response.getAction(), Toast.LENGTH_SHORT).show();
         }
     };
 ```
